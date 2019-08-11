@@ -1,4 +1,4 @@
-package com.ele.helloword.singleton;
+package com.ele.helloword.test.singleton;
 
 /**
  * 双重校验锁实现单例--线程安全

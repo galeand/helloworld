@@ -1,4 +1,4 @@
-package com.ele.helloword.singleton;
+package com.ele.helloword.test.singleton;
 
 /**
  * 懒汉式实现单例--线程不安全

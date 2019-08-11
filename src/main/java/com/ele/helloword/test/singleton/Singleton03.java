@@ -1,4 +1,4 @@
-package com.ele.helloword.singleton;
+package com.ele.helloword.test.singleton;
 
 /**
  * 静态内部类实现单例--线程安全
