@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace属性：指定当前mapper配置文件的唯一标识符
+1、如果是纯配置文件的方式，没有接口，值可以随便写的
+2、如果是配置文件+接口的方式，值必须是对应接口的全名
+-->
+<mapper namespace="com.ele.helloword.dao.UserDao">
+    <!--
+    insert : 用来执行添加操作
+    id : 表示当前的方法名
+    1、如果是纯配置文件的方式，没有接口，值可以随便写，但必须唯一
+    2、如果是配置文件+接口的方式，值必须与接口中的方法名相同
+    parameterMap : 表示方法的参数类型
+    1、如果参数是对象，可以使用类的全名
+    2、如果参数是普通数据，可以使用mybatis中的别名
+    -->
+    <insert id="insertUser">
+    insert into user
+    (username,password,phone,address)
+    values
+    (#{username},#{password},#{phone},#{address})
+</insert>
+
+    <select id="selectUser">
+     select *
+     from user
+     where id = #{id}
+</select>
+
+    <!--
+    useGeneratedKeys属性：
+        false:标识不返回逐渐，默认值
+        true:表示返回主键，会自动将返回的主键绑定到参数对象的主键属性中（要与keyProperty配合使用）
+    keyProperty属性：指定对象的哪个属性为主要属性，即主键所映射的属性，必须制定
+    -->
+    <insert id="insertDb"
+            useGeneratedKeys="true" keyProperty="id">
+    insert into t_user
+    (username, password)
+    values
+    (#{username},#{password})
+</insert>
+
+</mapper>

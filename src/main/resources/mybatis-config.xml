@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<environments default="beta">
+    <!--
+  environments : 配置当前工程中可能使用到的所有数据库环境
+        default : 指定默认使用的环境，取值为某一个environment
+-->
+    <environment id="beta">
+<!--        和使用xml配置文件相区别，在spring-boot当中使用yml配置-->
+<!--        spring:-->
+<!--        datasource:-->
+<!--        url: jdbc:mysql://###/tang_poetry?characterEncoding=utf-8-->
+<!--        username: ###-->
+<!--        password: ###-->
+<!--        driver-class-name: com.mysql.jdbc.Driver-->
+        <!--
+  transactionManager : 配置事务管理器
+        type : 指定事务管理器的类型，取值有两种
+    * jdbc : 使用简单的jdbc事务操作，如开启、提交、回滚，在mybatis中，默认是关闭自动提交事务的
+    * managed : 将事务交给其他框架/容器来处理，比如spring，mybatis不负责事务，什么都不会做
+  -->
+        <transactionManager type="JDBC"/>
+        <!--
+        dataSource :配置数据源
+              *type : 配置数据源类型，取值有三种：
+          UNPOOLED:简单的JDBC配置，并未使用连接池，相当于 DriverManager.getConnection(url,user,password);
+                  POOLED:使用连接池技术
+                  JNDI :通过外部容器来获取连接，比如tomcat等
+         -->
+        <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/test?
+useUnicode=true&amp;characterEncoding=utf-8"/>
+            <property name="username" value="root"/>
+            <property name="password" value="12345678"/>
+        </dataSource>
+    </environment>
+</environments>
+<mappers>
+    <!--
+        mapper :注册某一个mapper文件，可以有多个
+        resource : 制定映射文件的路径，写的是相对于src的路径，使用正斜杠分割
+    -->
+<!--    <mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <mapper resource="com/ele/helloword/mapper/UserMapper.xml"/>
+</mappers>
+</configuration>

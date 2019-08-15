@@ -19,9 +19,21 @@ public class BaseResult implements Serializable {
         this.message = "success";
     }
 
+    /**
+     * 这种情况只会返回失败，指定code时
+     *
+     * @param code
+     * @param message
+     */
     public BaseResult(Integer code, String message) {
         this.success = false;
         this.code = code;
+        this.message = message;
+    }
+
+    public BaseResult(String message) {
+        this.success = true;
+        this.code = 200;
         this.message = message;
     }
 
