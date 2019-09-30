@@ -2,12 +2,15 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <!--
 namespace属性：指定当前mapper配置文件的唯一标识符
 1、如果是纯配置文件的方式，没有接口，值可以随便写的
 2、如果是配置文件+接口的方式，值必须是对应接口的全名
 -->
 <mapper namespace="com.ele.helloword.dao.UserDao">
+    <resultMap id="userMap" type="com.ele.helloword.bean.User">
+    </resultMap>
     <!--
     insert : 用来执行添加操作
     id : 表示当前的方法名
@@ -24,7 +27,7 @@ namespace属性：指定当前mapper配置文件的唯一标识符
     (#{username},#{password},#{phone},#{address})
 </insert>
 
-    <select id="selectUser">
+    <select id="selectUser" resultMap="userMap">
      select *
      from user
      where id = #{id}

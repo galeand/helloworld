@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  * @author: xiangyf
  * @create: 2019-08-15 19:12
  */
-@Mapper
+//@Mapper
 public interface UserDao {
 
     boolean insertUser(User user);
