@@ -1,12 +1,17 @@
 package com.ele.helloword.bean;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * @name: User
  * @description:
  * @author: xiangyf
  * @create: 2019-08-15 19:13
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = 7963605663896606976L;
     private Integer id;
     private String username;
     private String password;
@@ -14,6 +19,21 @@ public class User {
     private String address;
 
     public User(String username, String password, String phone, String address) {
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    public static void printStudents(List<User> studentInfos) {
+        System.out.println("[编号]\t\t[用户名]\t\t[密码]\t\t[电话]\t\t[地址]");
+        System.out.println("----------------------------------------------------------");
+        studentInfos.forEach(s -> System.out.println(s.toString()));
+        System.out.println(" ");
+    }
+
+    public User(Integer id, String username, String password, String phone, String address) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.phone = phone;

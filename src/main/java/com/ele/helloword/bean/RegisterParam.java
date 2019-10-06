@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public class RegisterParam extends BaseParam implements Serializable {
 
-    private static final long serialVersionUID = 6970243373270725904L;
-
+    private static final long serialVersionUID = -738382295481730112L;
     private String username;
     private String password;
     private String verif_code;
